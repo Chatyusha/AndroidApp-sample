@@ -29,5 +29,11 @@ jobs:
       - name: Build
         run: | 
             ./gradlew assembleDebug
-
+      
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        if: ${{ success() }}
+        with:
+          name: application
+          path: app/build/outputs
 
